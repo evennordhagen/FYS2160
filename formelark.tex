@@ -4,6 +4,7 @@
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage{float}
+\usepackage{subfig}
  
 \usepackage{multicol}
  
@@ -66,8 +67,8 @@ $$\begin{aligned}
 &\bar{n}_{FD}=\frac{1}{\exp[(\epsilon-\mu)/kT]+1}\qquad&\text{Fermi-Dirac}\\
 &\bar{n}_{BE}=\frac{1}{\exp[(\epsilon-\mu)/kT]-1}\qquad&\text{Bose-Einstein}\\
 &\bar{n}_{B}=\exp[-(\epsilon-\mu)/kT]\qquad&\text{Boltzmann}\\
-&E=\int_0^{\infty}\epsilon f(\epsilon,\mu,T)D(\epsilon)d\epsilon\\
-&N=\int_0^{\infty}f(\epsilon,\mu,t)D(\epsilon)d\epsilon
+&E=\int_0^{\infty}\epsilon\bar{n}(\epsilon,\mu,T)D(\epsilon)d\epsilon\\
+&N=\int_0^{\infty}\bar{n}(\epsilon,\mu,T)D(\epsilon)d\epsilon
 \end{aligned}$$
 
 
@@ -133,24 +134,71 @@ dG&=&-SdT+VdP+\mu dN
 
 \section*{Utledninger}
 \subsection*{Den termodynamiske identitet}
-$$dQ=TdS$$
+\begin{enumerate}
+\item Tar utgangspunkt i $dQ=TdS$
+\item T1L: $dE=dQ+dW$
+\item $dW=PdV=\sigma dA=KdX$
+\item Kan legge til $\mu dN$
+\end{enumerate}
+$\Rightarrow TdS=dE-PdV+\mu dN$
 
+\subsection*{Energi rett fra Z}
+Utgangspunkt:
+$$Z(N,V,T)=\sum_i^N \exp(-\epsilon_i/kT)$$
+$$P=(1/Z)\exp(-\epsilon_i/kT)$$
+
+$$E=\sum_i^N\epsilon_i P(\epsilon_i)=(1/Z)\sum_i^N\epsilon_i\exp(-\epsilon_i\beta)$$
+$$=\frac{1}{Z}\sum_i^N-\frac{\partial}{\partial\beta}\exp(-\epsilon_i\beta)=-\frac{1}{Z}\frac{\partial Z}{\partial\beta}$$
+$$=-\frac{d\ln Z}{d\beta}=kT^2\bigg(\frac{\partial\ln Z}{\partial T}\bigg)$$
+
+\subsection*{Adiabat for ideell gass}
+\begin{enumerate}
+\item Ta utgangspunkt i Sackur-Tetrode
+\item Adiabat - $dS=0 \Rightarrow S_1=S_2$
+\item Bruk ekvipartisjonsprinsippet
+\end{enumerate}
+$$\Rightarrow V_1^{2/3}T_1=V_2^{2/3}T_2$$
+
+\subsection*{Clausius-Clapeyron}
+\begin{enumerate}
+\item $G_l=G_g$
+\item $G_l(P_0+dP,T_0+dT)=G_g(P_0+dP,T_0+dT)$
+\item Taylor: 
+$$G_l(P_0+dP,T_0+dT)\approx G_l(P_0,T_0)$$
+$$+\bigg(\frac{\partial G_l}{\partial P}\bigg)dP+\bigg(\frac{\partial G_l}{\partial T}\bigg)dT$$
+\item Bruker differensialene
+$$\bigg(\frac{\partial G_l}{\partial P}\bigg)_T=V_l,\quad\bigg(\frac{\partial G_l}{\partial T}\bigg)_P=-S_l$$
+\end{enumerate}
+$$\Rightarrow V_ldP-S_ldT=V_gdP-S_gdT$$
+$$\Rightarrow \frac{dP}{dT}=\frac{S_l-S_g}{V_l-V_g}=\frac{L(T)}{T\Delta V}$$
+
+\subsection*{Bose-Einstein-fordelingen}
+\begin{enumerate}
+\item Tar utgangspunkt i $$\mathcal{Z}=\sum_i^N\exp[-(n\epsilon-n\mu)/kT]$$
+\item Bruker at $n=1,2,3...$
+\item Bruker $\sum_nq^2=1/(1-q),\, q<1$
+\item $\bar{n}=\sum nP(n)$
+\end{enumerate}
+$$\Rightarrow \frac{1}{\mathcal{Z}}\sum_n n\exp(-nx)=\frac{1}{\mathcal{Z}}\sum_n\frac{\partial}{\partial x}\exp(-nx)$$
+$$\Rightarrow \frac{1}{\mathcal{Z}}\frac{\partial\mathcal{Z}}{\partial x}=\frac{1}{\exp[(\epsilon-\mu)/kT]-1}$$
 \end{multicols}
-\begin{figure}[h]
-\centering
-\includegraphics[width=90mm]{carnot.jpg}
-\caption{Carnotsyklusen}
+
+\begin{figure}%
+    \centering
+    \subfloat[Carnotsyklusen]{{\includegraphics[width=5cm]{carnot.jpg} }}%
+    \qquad
+    \subfloat[Faseoverganger for rene substanser]{{\includegraphics[width=5cm]{triple.jpg} }}%
 \end{figure}
-\begin{figure}[h]
-\centering
-\includegraphics[width=90mm]{triple.jpg}
-\caption{Faseoverganger for rene substanser}
-\end{figure}
+
 \begin{figure}[h]
 \centering
 \includegraphics[width=90mm]{fordelinger.png}
 \caption{Fordelingsfunksjoner (Fermi-Dirac, Boltzmann, Bose-Einstein)}
 \end{figure}
-
- 
+\subsection*{Tilstandstettheten og fermienergi}
+\subsubsection*{3D:}
+$$D(n)dn=N_T\cdot A=2\cdot (1/8)\cdot 4\pi n^2dn=\pi n^2dn\qquad N_T=2\text{ for fermioner}$$
+$$\Rightarrow D(n)dn=D(\epsilon)d\epsilon\Rightarrow D(\epsilon)=\pi n^2(1/2an)=\frac{\pi}{2a}n=\frac{\pi}{2a}\sqrt{\frac{\epsilon}{a}}$$
+$$N=N_T\cdot V(n_{max})=2\cdot\frac{1}{8}\cdot\frac{4}{3}\pi n_{max}^3\quad\Rightarrow n_{max}^2=\bigg(\frac{3N}{\pi}\bigg)^{2/3}$$
+$$\epsilon_F=\epsilon(n_{max})=an_{max}^2=a\bigg(\frac{3N}{\pi}\bigg)^{2/3}$$ 
 \end{document}
