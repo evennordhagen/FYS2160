@@ -63,7 +63,7 @@ $$\begin{aligned}
 \end{aligned}$$
 \subsection*{Grand-kanonisk}
 $$\begin{aligned}
-&\mathcal{Z}=\sum_i \exp-[\epsilon_i-N\mu]/kT\qquad&\text{Gibbs sum}\\
+&\mathcal{Z}=\sum_N\sum_i \exp-[\epsilon_i-N\mu]/kT\qquad&\text{Gibbs sum}\\
 &\bar{n}_{FD}=\frac{1}{\exp[(\epsilon-\mu)/kT]+1}\qquad&\text{Fermi-Dirac}\\
 &\bar{n}_{BE}=\frac{1}{\exp[(\epsilon-\mu)/kT]-1}\qquad&\text{Bose-Einstein}\\
 &\bar{n}_{B}=\exp[-(\epsilon-\mu)/kT]\qquad&\text{Boltzmann}\\
@@ -176,7 +176,7 @@ $$\Rightarrow \frac{dP}{dT}=\frac{S_l-S_g}{V_l-V_g}=\frac{L(T)}{T\Delta V}$$
 \begin{enumerate}
 \item Tar utgangspunkt i $$\mathcal{Z}=\sum_i^N\exp[-(n\epsilon-n\mu)/kT]$$
 \item Bruker at $n=1,2,3...$
-\item Bruker $\sum_nq^2=1/(1-q),\, q<1$
+\item Bruker $\sum_nq^n=1/(1-q),\, q<1$
 \item $\bar{n}=\sum nP(n)$
 \end{enumerate}
 $$\Rightarrow \frac{1}{\mathcal{Z}}\sum_n n\exp(-nx)=\frac{1}{\mathcal{Z}}\sum_n\frac{\partial}{\partial x}\exp(-nx)$$
@@ -185,7 +185,7 @@ $$\Rightarrow \frac{1}{\mathcal{Z}}\frac{\partial\mathcal{Z}}{\partial x}=\frac{
 
 \begin{figure}%
     \centering
-    \subfloat[Carnotsyklusen]{{\includegraphics[width=5cm]{carnot.jpg} }}%
+    \subfloat[Carnotsyklusen]{{\includegraphics[width=6cm]{carnot.jpg} }}%
     \qquad
     \subfloat[Faseoverganger for rene substanser]{{\includegraphics[width=5cm]{triple.jpg} }}%
 \end{figure}
